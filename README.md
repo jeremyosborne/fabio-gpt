@@ -13,6 +13,7 @@
 
 Generate tuning data:
 
+- One time: `git lfs install`
 - One time: `git clone https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0 ./hf-models/tinyllama`
 - `python tuning/generate_romance_dataset.py`
 - `python tuning/fine_tune_romance.py`
@@ -26,11 +27,8 @@ FROM llama2
 PARAMETER temperature 0.8
 PARAMETER top_p 0.9
 PARAMETER stop "###"
-
-# Use your fine-tuned weights
-ADAPTER ./merged-romance-model
 ```
 
-- Update our model `ollama create romance-fabio -f Modelfile`
+- Update our model `ollama create romance-fabio -f ./merged-romance-model/Modelfile`
 - Use this model instead: `ollama run romance-fabio`
 - Switch the app to use our model: `json: { model: "romance-fabio", prompt, stream: true },`

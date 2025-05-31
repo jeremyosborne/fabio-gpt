@@ -47,3 +47,5 @@ __pycache__
 # Models
 ###################################
 hf-models
+romance-lora-out
+merged-romance-model

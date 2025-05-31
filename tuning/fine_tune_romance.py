@@ -2,7 +2,7 @@
 
 import os
 import json
-from datasets import load_dataset, Dataset
+from datasets import Dataset
 from transformers import (
     AutoTokenizer,
     AutoModelForCausalLM,
@@ -62,7 +62,8 @@ def fine_tune():
         gradient_accumulation_steps=4,
         num_train_epochs=3,
         learning_rate=2e-4,
-        fp16=True,
+        # fp16=True,
+        # bf16=True,
         logging_dir="logs",
         logging_steps=10,
         save_strategy="epoch",
