@@ -113,70 +113,86 @@ export default function HomePage() {
     // };
 
     return (
-        <main className="min-h-screen bg-pink-50 p-6">
-            <div className="max-w-xl mx-auto">
-                <h1 className="text-3xl font-bold text-center text-rose-700 mb-4">
-                    HeartFire Publishing: Submit Your Romance
-                </h1>
-                <p className="text-center text-gray-600 mb-6">
-                    Collaboratively author your next steamy—but tasteful—scene.
-                </p>
+        <main
+            className="min-h-screen"
+            style={{
+                backgroundImage: 'url("/background.png")',
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundAttachment: "fixed",
+                backgroundPosition: "center",
+            }}
+        >
+            <div
+                className="min-h-screen"
+                style={{ backgroundColor: "rgba(200, 80, 100, 0.7)" }}
+            >
+                <div className="max-w-xl mx-auto bg-pink-50 p-10">
+                    <h1 className="text-3xl font-bold text-center text-rose-700 mb-4">
+                        FabioGPT
+                    </h1>
+                    <p className="text-center text-gray-600 mb-6">
+                        Collaboratively author your next romantic scene.
+                    </p>
 
-                <div className="grid gap-4">
-                    <input
-                        placeholder="Your Character's Name"
-                        value={authorName}
-                        onChange={(e) => setAuthorName(e.target.value)}
-                        className="border p-2 rounded w-full"
-                    />
-                    <input
-                        placeholder="Their Love Interest's Name"
-                        value={loveInterest}
-                        onChange={(e) => setLoveInterest(e.target.value)}
-                        className="border p-2 rounded w-full"
-                    />
-                    <input
-                        placeholder="Romantic Setting (e.g. moonlit rooftop)"
-                        value={setting}
-                        onChange={(e) => setSetting(e.target.value)}
-                        className="border p-2 rounded w-full"
-                    />
-                    <input
-                        placeholder="Choose a Trope (e.g. enemies to lovers)"
-                        value={trope}
-                        onChange={(e) => setTrope(e.target.value)}
-                        className="border p-2 rounded w-full"
-                    />
-                    <SubmitButton
-                        onClick={generateStory}
-                        disabled={!canSubmit || loading}
-                        loading={loading}
-                    >
-                        Submit to Story Generator
-                    </SubmitButton>
+                    <div className="grid gap-4">
+                        <input
+                            placeholder="Your Character's Name"
+                            value={authorName}
+                            onChange={(e) => setAuthorName(e.target.value)}
+                            className="border p-2 rounded w-full"
+                        />
+                        <input
+                            placeholder="Their Love Interest's Name"
+                            value={loveInterest}
+                            onChange={(e) => setLoveInterest(e.target.value)}
+                            className="border p-2 rounded w-full"
+                        />
+                        <input
+                            placeholder="Romantic Setting (e.g. moonlit rooftop)"
+                            value={setting}
+                            onChange={(e) => setSetting(e.target.value)}
+                            className="border p-2 rounded w-full"
+                        />
+                        <input
+                            placeholder="Choose a Trope (e.g. enemies to lovers)"
+                            value={trope}
+                            onChange={(e) => setTrope(e.target.value)}
+                            className="border p-2 rounded w-full"
+                        />
+                        <SubmitButton
+                            onClick={generateStory}
+                            disabled={!canSubmit || loading}
+                            loading={loading}
+                        >
+                            Submit to FabioGPT
+                        </SubmitButton>
+                    </div>
+
+                    {story && (
+                        <div className="mt-8 bg-white p-4 rounded shadow">
+                            <h2 className="text-xl font-semibold text-rose-600 mb-2">
+                                Submission Preview
+                            </h2>
+                            <p className="whitespace-pre-line text-gray-800">
+                                {story}
+                            </p>
+                        </div>
+                    )}
+
+                    {log.length > 0 && (
+                        <div className="h-50 mt-6 p-3 bg-yellow-50 border border-yellow-200 text-sm text-yellow-800 rounded overflow-y-auto">
+                            <strong className="block mb-2">
+                                Submission Log:
+                            </strong>
+                            <ul className="list-disc list-inside">
+                                {log.map((entry, idx) => (
+                                    <li key={idx}>{entry}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
                 </div>
-
-                {story && (
-                    <div className="mt-8 bg-white p-4 rounded shadow">
-                        <h2 className="text-xl font-semibold text-rose-600 mb-2">
-                            Submission Preview
-                        </h2>
-                        <p className="whitespace-pre-line text-gray-800">
-                            {story}
-                        </p>
-                    </div>
-                )}
-
-                {log.length > 0 && (
-                    <div className="h-50 mt-6 p-3 bg-yellow-50 border border-yellow-200 text-sm text-yellow-800 rounded overflow-y-auto">
-                        <strong className="block mb-2">Submission Log:</strong>
-                        <ul className="list-disc list-inside">
-                            {log.map((entry, idx) => (
-                                <li key={idx}>{entry}</li>
-                            ))}
-                        </ul>
-                    </div>
-                )}
             </div>
         </main>
     );
