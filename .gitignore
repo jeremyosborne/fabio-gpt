@@ -1,0 +1,45 @@
+###################################
+# Common / idiomatic / OS level
+###################################
+# Mac
+.DS_Store
+Thumbs.db
+
+# Built-code folder, idiom presumed for all projects within this code base.
+dist
+
+# Log files
+*.log
+
+# Configuration by environment variables...
+.env
+.env.*
+# ...and allow our idiomatic documentation as template.
+!.env.example
+
+###################################
+# JavaScript / TypeScript / Node.js
+###################################
+# Jest
+coverage
+
+# Next.js
+.next/
+.next.cache/
+out/
+# Speedy Web Compiler (SWC), binary downloaded by nextjs.
+.swc 
+
+# Node
+node_modules
+npm-debug.log*
+
+# TypeScript
+*.tsbuildinfo
+
+###################################
+# Python
+###################################
+__pycache__
+*.egg-info
+
