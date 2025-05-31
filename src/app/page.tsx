@@ -15,10 +15,10 @@ type ModelMessage = {
 };
 
 export default function HomePage() {
-    const [authorName, setAuthorName] = useState("FabioGPT");
-    const [loveInterest, setLoveInterest] = useState("BB846F");
-    const [setting, setSetting] = useState("An IRC Chatroom");
-    const [trope, setTrope] = useState("Trolls to lovers");
+    const [authorName, setAuthorName] = useState("");
+    const [loveInterest, setLoveInterest] = useState("");
+    const [setting, setSetting] = useState("");
+    const [trope, setTrope] = useState("");
     const [story, setStory] = useState("");
     const [loading, setLoading] = useState(false);
     const [log, setLog] = useState<string[]>([]);
