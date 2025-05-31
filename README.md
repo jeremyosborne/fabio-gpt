@@ -1,4 +1,4 @@
-# Romance novel generator
+# FabioGPT
 
 ## Front end
 
@@ -29,6 +29,6 @@ PARAMETER top_p 0.9
 PARAMETER stop "###"
 ```
 
-- Update our model `ollama create romance-fabio -f ./merged-romance-model/Modelfile`
-- Use this model instead: `ollama run romance-fabio`
-- Switch the app to use our model: `json: { model: "romance-fabio", prompt, stream: true },`
+- Update our model `ollama create fabio-gpt -f ./merged-romance-model/Modelfile`
+- Use this model instead: `ollama run fabio-gpt`
+- Switch the app to use our model: `json: { model: "fabio-gpt", prompt, stream: true },`

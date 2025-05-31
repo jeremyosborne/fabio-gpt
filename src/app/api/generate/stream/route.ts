@@ -19,6 +19,7 @@ Write as if it's the opening of a paperback romance novel submission.
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
             model: "llama3",
+            // model: "fabio-gpt",
             prompt,
             stream: true,
         }),

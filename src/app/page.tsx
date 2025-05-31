@@ -152,7 +152,7 @@ export default function HomePage() {
                         disabled={!canSubmit || loading}
                         loading={loading}
                     >
-                        Submit to Editor
+                        Submit to Story Generator
                     </SubmitButton>
                 </div>
 
